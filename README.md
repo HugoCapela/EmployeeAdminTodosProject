@@ -1,12 +1,12 @@
-# Employee / Admin Todo REST API
+# Employee / Admin Todos REST API
 
-This repository contains a Spring Boot REST API project developed alongside the Udemy course: “Develop Real-Time Spring Boot 4 RESTful Endpoints: CRUD, JWTs, OpenAPI, Swagger, Auth, H2 Embedded DB, MySQL” with the goal To serve as a portfolio project demonstrating my skills with Java, Spring Boot and REST APIs.
+This repository contains a Spring Boot REST API project developed alongside the Udemy course: “Develop Real-Time Spring Boot 4 RESTful Endpoints: CRUD, JWTs, OpenAPI, Swagger, Auth, H2 Embedded DB, MySQL” with the goal to serve as a portfolio project demonstrating my skills with Java, Spring Boot and REST APIs.
 
 <br>
 
 ## 📌 Project Overview
 
-This application is a Todo management system with role-based access control. It exposes multiple RESTful endpoints that allow users and administrators to manage todos and users securely.
+This application is a Todos management system with role-based access control. It exposes multiple RESTful endpoints that allow users and administrators to manage todos and users securely.
 
 The API supports:
 - User registration and authentication using JWTs
@@ -57,13 +57,14 @@ Each commit corresponds closely to course lessons to clearly show feature progre
 
 - Java
 - Spring Boot
-- Spring Web (REST APIs)
+- Spring Web
+- Spring Data JPA
+- Spring Boot DevTools
 - Spring Security
 - JWT (JSON Web Tokens)
-- Spring Data JPA / Hibernate
 - MySQL
-- OpenAPI / Swagger for API documentation
-- Maven for dependency management
+- OpenAPI / Swagger
+- Maven
 
 <br>
 

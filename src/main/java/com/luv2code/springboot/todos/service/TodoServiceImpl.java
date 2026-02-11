@@ -9,6 +9,8 @@ import com.luv2code.springboot.todos.util.FindAuthenticatedUser;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class TodoServiceImpl implements TodoService {
 
@@ -18,6 +20,17 @@ public class TodoServiceImpl implements TodoService {
     public TodoServiceImpl(TodoRepository todoRepository, FindAuthenticatedUser findAuthenticatedUser) {
         this.todoRepository = todoRepository;
         this.findAuthenticatedUser = findAuthenticatedUser;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<TodoResponse> getAllTodos() {
+        User currentUser = findAuthenticatedUser.getAuthenticatedUser();
+
+        return todoRepository.findByOwner(currentUser)
+                .stream()
+                .map(this::convertToTodoResponse)
+                .toList();
     }
 
     @Override
@@ -35,12 +48,16 @@ public class TodoServiceImpl implements TodoService {
 
         Todo savedTodo = todoRepository.save(todo);
 
+        return convertToTodoResponse(savedTodo);
+    }
+
+    private TodoResponse convertToTodoResponse(Todo todo) {
         return new TodoResponse(
-                savedTodo.getId(),
-                savedTodo.getTitle(),
-                savedTodo.getDescription(),
-                savedTodo.getPriority(),
-                savedTodo.isComplete()
+                todo.getId(),
+                todo.getTitle(),
+                todo.getDescription(),
+                todo.getPriority(),
+                todo.isComplete()
         );
     }
 }

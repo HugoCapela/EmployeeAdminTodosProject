@@ -68,6 +68,40 @@ Each commit corresponds closely to course lessons to clearly show feature progre
 
 <br>
 
+## ▶️ How to Run Locally
+
+Follow the steps below to run the application on your machine.
+
+### 1️⃣ Start MySQL using Docker
+
+Make sure Docker is running, then execute:
+
+`docker run -d -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=tododb --name mysqldb -p 3307:3306 mysql:8.0`
+
+This will:
+- Create a MySQL container
+- Set the root password to secret
+- Create a database named tododb
+- Expose MySQL on port 3307 locally
+
+### 2️⃣ Run the Spring Boot Application
+
+Open the project in your favorite IDE (IntelliJ, VS Code, Eclipse, etc.) and start the application.
+
+The API will run by default on:
+
+`http://localhost:8080`
+
+### 3️⃣ Access Swagger / OpenAPI Documentation
+
+Once the application is running, open your browser and go to:
+
+`http://localhost:8080/docs`
+
+From there you can explore and test all available endpoints.
+
+<br>
+
 ## 🚀 Purpose of This Repository
 
 This project is:
